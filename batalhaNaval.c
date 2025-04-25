@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#define LINHAS 10
+#define COLUNAS 10
+
 int main() {
     
     // Criação do tabuleiro para Batalha Naval (matriz 10x10)
@@ -36,6 +39,16 @@ int main() {
             tabuleiro[linha2 + cont][coluna2] = 3;
             cont++;
         }
+
+    // Navio diagonal principal: B2-C3-D4 → (1,1), (2,2), (3,3)
+    for (i = 0; i < 3; i++) {
+        tabuleiro[1 + i][1 + i] = 3;
+    }
+
+    // Navio diagonal secundária: I1-H2-G3 → (0,8), (1,7), (2,6)
+    for (i = 0; i < 3; i++) {
+        tabuleiro[0 + i][8 - i] = 3;
+    }
 
  
     // Cabeçalho com letras de A a J representando as colunas
